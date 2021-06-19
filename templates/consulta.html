@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<table border="2">
+		<thead>
+			<tr>
+				<th>NOMBRE</th>
+				<th>NOTA</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for persona in personas %}
+			<tr>
+				<td>{{persona.nombre}}</td>
+				<td>{{persona.nota}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<div>
+	<p>Los siguientes estudiantes ganan la materia</p>
+	<ol>
+		{%for persona in personas%}
+		{%if persona.nota > 2.9 %}
+			<li>{{persona.nombre}}
+			</li>
+		{% endif %}	
+		{% endfor %}
+	</ol>
+	</div>
+	<br>
+	<p>Los siguientes estudiantes pierden la materia</p>
+	<ol>
+		{%for persona in personas%}
+		{%if persona.nota < 3 %}
+			<li>{{persona.nombre}}
+			</li>
+		{% endif %}	
+		{% endfor %}
+	</ol>
+	</div>
+
+	<form action="/">
+		<button type="submit">INICIO</button>
+	</form>
+{% endblock %}

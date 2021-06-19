@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+	
+	<div style="text-align: center;">
+		<h1>Crear un usuario</h1>
+		<form method="post">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button type="submit">Enviar</button>
+		</form>
+	</div>
+	<br>
+	<div>
+		<form action="/">
+			<button type="submit">VOLVER AL INICIO</button>
+		</form>
+	</div>
+
+{% endblock %}
